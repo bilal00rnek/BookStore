@@ -1,0 +1,107 @@
+﻿@model List<Template.Models.Book>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <br />
+    <div class="container">
+        <a class="btn btn-success" href="/Home/Add">Yeni Kitap Ekle</a>
+    </div>
+    <br />
+    <div class="container">
+        <form method="get" action="/Home/Index">
+            <div class="row">
+                <div class="col-lg-12">
+                    <select class="form-control" onchange="this.form.submit()" name="language" id="language">
+                        <option selected disabled value="">
+                            Dil Seçiniz
+                        </option>
+                        <option value="Türkçe">
+                            Türkçe
+                        </option>
+                        <option value="İngilizce">
+                            İngilizce
+                        </option>
+                        <option value="Hepsi">
+                            Hepsi
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table">
+                    <tr>
+                        <th>
+                            Book Name
+                        </th>
+                        <th>
+                            Author
+                        </th>
+                        <th>
+                            Language
+                        </th>
+                        <th>
+                            Publishing Date
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                    </tr>
+                    @foreach (Template.Models.Book book in Model)
+                    {
+                        <tr>
+                            <td>
+                                @book.BookName
+                            </td>
+                            <td>
+                                @book.Author
+                            </td>
+                            <td>
+                                @book.Language
+                            </td>
+                            <td>
+                                @book.PubDate
+                            </td>
+                            <td>
+                                @book.Price
+                            </td>
+                            <td>
+                                <a class="btn btn-danger" href="/Home/Remove?BookId=@book.BookId">Kitabı Sil</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-warning" href="/Home/Update?BookId=@book.BookId">Kitabı Güncelle</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-12">
+                Total Price:  @ViewBag.total
+            </div>
+        </div>
+    </div>
+</body>
+</html>

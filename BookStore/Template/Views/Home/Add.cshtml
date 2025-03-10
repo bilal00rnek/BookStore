@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+ <div class="container">
+     <form action="/Home/Add" method="post">
+         <div class="row">
+             <div class="col-lg-12">
+                 <input placeholder="Book Name" required type="text" id="BookName" name="BookName" class="form-control" />
+             </div>
+         </div>
+         <br />
+         <div class="row">
+             <div class="col-lg-12">
+                 <input placeholder="Author" required type="text" id="Author" name="Author" class="form-control" />
+             </div>
+         </div>
+         <br />
+         <div class="row">
+             <div class="col-lg-12">
+                 <select required class="form-control" name="Language" id="Language">
+                     <option selected disabled value="">
+                         Dil Seçiniz
+                     </option>
+                     <option value="Türkçe">
+                         Türkçe
+                     </option>
+                     <option value="İngilizce">
+                         İngilizce
+                     </option>
+                 </select>
+             </div>
+         </div>
+         <br />
+         <div class="row">
+             <div class="col-lg-12">
+                 <input placeholder="Price" required type="number" id="Price" name="Price" class="form-control" />
+             </div>
+         </div>
+         <br />
+         <div class="row">
+             <div class="col-lg-12">
+                 <button type="submit" class="btn btn-success btn-block">Kaydet</button>
+             </div>
+         </div>
+     </form>
+ </div>
+</body>
+</html>
